@@ -79,37 +79,53 @@ function Node({ position, label, accent }: NodeDef) {
 }
 
 function CenterNode() {
-  const ref = useRef<THREE.Mesh>(null);
   const coreRef = useRef<THREE.Mesh>(null);
+  const ring1Ref = useRef<THREE.Mesh>(null);
+  const ring2Ref = useRef<THREE.Mesh>(null);
 
   useFrame((_, delta) => {
-    if (ref.current) {
-      ref.current.rotation.y += delta * 0.4;
-      ref.current.rotation.x += delta * 0.2;
+    if (ring1Ref.current) {
+      ring1Ref.current.rotation.y += delta * 0.5;
+      ring1Ref.current.rotation.x += delta * 0.2;
+    }
+    if (ring2Ref.current) {
+      ring2Ref.current.rotation.y -= delta * 0.3;
+      ring2Ref.current.rotation.x -= delta * 0.4;
     }
     if (coreRef.current) {
-      coreRef.current.rotation.y -= delta * 0.5;
+      coreRef.current.rotation.y += delta * 0.1;
     }
   });
 
   return (
     <group position={CENTER}>
-      <mesh ref={ref}>
-        <icosahedronGeometry args={[0.3, 1]} />
+      {/* Outer Ring */}
+      <mesh ref={ring1Ref} rotation={[Math.PI / 3, 0, 0]}>
+        <torusGeometry args={[0.3, 0.005, 16, 64]} />
         <meshStandardMaterial
           color="#7C5CFC"
           emissive="#7C5CFC"
-          emissiveIntensity={2}
-          wireframe
+          emissiveIntensity={3}
           toneMapped={false}
         />
       </mesh>
+      {/* Inner Ring */}
+      <mesh ref={ring2Ref} rotation={[-Math.PI / 4, 0, 0]}>
+        <torusGeometry args={[0.18, 0.008, 16, 64]} />
+        <meshStandardMaterial
+          color="#5EEAD4"
+          emissive="#5EEAD4"
+          emissiveIntensity={2}
+          toneMapped={false}
+        />
+      </mesh>
+      {/* Glowing Core */}
       <mesh ref={coreRef}>
-        <icosahedronGeometry args={[0.15, 0]} />
+        <sphereGeometry args={[0.12, 32, 32]} />
         <meshStandardMaterial
           color="#ffffff"
           emissive="#ffffff"
-          emissiveIntensity={1.5}
+          emissiveIntensity={2.5}
           toneMapped={false}
         />
       </mesh>
@@ -178,7 +194,8 @@ function Scene() {
         ))}
       </Float>
       
-      <EffectComposer>
+      {/* multisampling={4} fixes jagged edges (anti-aliasing) when using postprocessing */}
+      <EffectComposer multisampling={4}>
         <Bloom luminanceThreshold={0.5} mipmapBlur luminanceSmoothing={0.9} intensity={2.0} />
       </EffectComposer>
     </group>
@@ -187,7 +204,13 @@ function Scene() {
 
 export default function NexusGraph3D() {
   return (
-    <div className="h-[320px] w-full md:h-[450px]">
+    <div 
+      className="h-[320px] w-full md:h-[450px]"
+      style={{
+        WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 90%)',
+        maskImage: 'radial-gradient(circle at center, black 40%, transparent 90%)'
+      }}
+    >
       <Canvas camera={{ position: [0, 0, 5.5], fov: 45 }} dpr={[1, 2]}>
         <Scene />
       </Canvas>
