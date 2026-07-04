@@ -17,26 +17,25 @@ export default function Hero() {
   return (
     <section className="pb-16 pt-22">
       <div className="eyebrow mb-5 flex items-center gap-[10px] font-mono text-xs uppercase tracking-[1.5px] text-cyan">
-        Frontend & AI Automation Studio
+        Frontend & AI Builder
       </div>
       <h1 className="max-w-[680px] font-display text-[56px] font-semibold leading-[1.06] tracking-[-1.5px] text-white md:text-[56px] max-md:text-4xl">
-        G&apos;oyalarni <span className="text-purple">ishlaydigan</span>{" "}
-        tizimlarga aylantiramiz.
+        O&apos;zbekistondan <span className="text-purple">dasturchi</span>{" "}
+        va AI builder.
       </h1>
       <p className="mt-[22px] max-w-[480px] text-[17px] leading-relaxed text-muted">
-        Frontend dasturlash, AI avtomatizatsiya va Telegram bot yechimlari —
-        biznesingiz uchun real natija beradigan mahsulotlar quramiz.
+        Nexus Devs — mening build-in-public jurnalim va shaxsiy loyihalarim uchun uy. Asosan Frontend, AI avtomatizatsiya va Telegram botlari bilan tajriba qilaman.
       </p>
       <div className="mt-[34px] flex gap-3.5">
         <a
-          href="#contact"
+          href="#blog"
           className="rounded-lg bg-purple px-6 py-[13px] text-sm font-semibold text-white transition-opacity hover:opacity-90"
         >
-          Loyiha boshlash →
+          Blogni o&apos;qish →
         </a>
         <a
           href="#work"
-          className="rounded-lg border border-border px-6 py-[13px] font-mono text-sm text-white"
+          className="rounded-lg border border-border px-6 py-[13px] font-mono text-sm text-white transition-colors hover:bg-white/5"
         >
           /loyihalarni ko&apos;rish
         </a>

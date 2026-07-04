@@ -7,20 +7,20 @@ export default function Nav() {
       </div>
       <div className="hidden gap-9 text-sm text-muted md:flex">
         <a href="#services" className="transition-colors hover:text-white">
-          Xizmatlar
+          Yo&apos;nalishlar
+        </a>
+        <a href="#blog" className="transition-colors hover:text-white">
+          Blog
         </a>
         <a href="#work" className="transition-colors hover:text-white">
           Loyihalar
-        </a>
-        <a href="#about" className="transition-colors hover:text-white">
-          Biz haqimizda
         </a>
       </div>
       <a
         href="#contact"
         className="rounded-md bg-purple px-[18px] py-[9px] font-mono text-[13px] font-medium text-bg"
       >
-        Bog&apos;lanish
+        Kuzatish
       </a>
     </nav>
   );

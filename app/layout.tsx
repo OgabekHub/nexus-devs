@@ -21,9 +21,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nexus Devs — Frontend & AI Automation Studio",
+  title: "Nexus Devs — Frontend & AI Builder",
   description:
-    "Frontend dasturlash, AI avtomatizatsiya va Telegram bot yechimlari — biznesingiz uchun real natija beradigan mahsulotlar.",
+    "Frontend dasturchi va AI builder, O'zbekistondan. Nexus Devs — mening build-in-public jurnalim va loyihalarim.",
 };
 
 export default function RootLayout({
