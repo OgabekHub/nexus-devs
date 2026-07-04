@@ -70,7 +70,7 @@ function Node({ position, label, accent }: NodeDef) {
         color={hovered ? "#ffffff" : "#8B8B99"}
         anchorX="center"
         anchorY="middle"
-        toneMapped={false}
+        material-toneMapped={false}
       >
         {label}
       </Text>
@@ -120,7 +120,7 @@ function CenterNode() {
         anchorX="center"
         anchorY="middle"
         letterSpacing={0.1}
-        toneMapped={false}
+        material-toneMapped={false}
       >
         NEXUS
       </Text>
@@ -178,7 +178,7 @@ function Scene() {
         ))}
       </Float>
       
-      <EffectComposer disableNormalPass>
+      <EffectComposer>
         <Bloom luminanceThreshold={0.5} mipmapBlur luminanceSmoothing={0.9} intensity={2.0} />
       </EffectComposer>
     </group>
