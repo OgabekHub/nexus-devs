@@ -31,11 +31,12 @@ function Node({ position, label, accent }: NodeDef) {
       onPointerOut={() => setHovered(false)}
     >
       <mesh scale={hovered ? 1.5 : 1}>
-        <sphereGeometry args={[0.09, 24, 24]} />
+        <sphereGeometry args={[0.09, 64, 64]} />
         <meshStandardMaterial
           color={accent ? "#5EEAD4" : "#23232E"}
           emissive={accent ? "#5EEAD4" : "#000000"}
-          emissiveIntensity={hovered ? 2.5 : (accent ? 1.5 : 0)}
+          emissiveIntensity={hovered ? 3.0 : (accent ? 2.0 : 0)}
+          toneMapped={false}
         />
       </mesh>
       <Text
@@ -44,6 +45,7 @@ function Node({ position, label, accent }: NodeDef) {
         color={hovered ? "#ffffff" : "#8B8B99"}
         anchorX="center"
         anchorY="middle"
+        toneMapped={false}
       >
         {label}
       </Text>
@@ -68,12 +70,13 @@ function CenterNode() {
   return (
     <group position={CENTER}>
       <mesh ref={ref}>
-        <torusKnotGeometry args={[0.25, 0.05, 100, 16]} />
+        <icosahedronGeometry args={[0.3, 1]} />
         <meshStandardMaterial
           color="#7C5CFC"
           emissive="#7C5CFC"
           emissiveIntensity={2}
           wireframe
+          toneMapped={false}
         />
       </mesh>
       <mesh ref={coreRef}>
@@ -81,7 +84,8 @@ function CenterNode() {
         <meshStandardMaterial
           color="#ffffff"
           emissive="#ffffff"
-          emissiveIntensity={2}
+          emissiveIntensity={1.5}
+          toneMapped={false}
         />
       </mesh>
       <Text
@@ -91,6 +95,7 @@ function CenterNode() {
         anchorX="center"
         anchorY="middle"
         letterSpacing={0.1}
+        toneMapped={false}
       >
         NEXUS
       </Text>
@@ -112,7 +117,7 @@ function Links() {
           points={pair}
           color="#7C5CFC"
           transparent
-          opacity={0.4}
+          opacity={0.3}
           lineWidth={1.5}
         />
       ))}
@@ -139,7 +144,7 @@ function Scene() {
       <ambientLight intensity={0.6} />
       <pointLight position={[3, 3, 3]} intensity={40} color="#7C5CFC" />
       <pointLight position={[-3, -2, 2]} intensity={20} color="#5EEAD4" />
-      <Stars radius={50} depth={20} count={3000} factor={4} saturation={0} fade speed={1} />
+      <Stars radius={50} depth={20} count={1500} factor={3} saturation={0} fade speed={1} />
       <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
         <Links />
         <CenterNode />
@@ -148,8 +153,8 @@ function Scene() {
         ))}
       </Float>
       
-      <EffectComposer>
-        <Bloom luminanceThreshold={0.2} luminanceSmoothing={0.9} intensity={1.5} />
+      <EffectComposer disableNormalPass>
+        <Bloom luminanceThreshold={0.5} mipmapBlur luminanceSmoothing={0.9} intensity={2.0} />
       </EffectComposer>
     </group>
   );
@@ -158,7 +163,7 @@ function Scene() {
 export default function NexusGraph3D() {
   return (
     <div className="h-[320px] w-full md:h-[450px]">
-      <Canvas camera={{ position: [0, 0, 5.5], fov: 45 }}>
+      <Canvas camera={{ position: [0, 0, 5.5], fov: 45 }} dpr={[1, 2]}>
         <Scene />
       </Canvas>
     </div>
