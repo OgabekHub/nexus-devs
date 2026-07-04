@@ -1,13 +1,14 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import FadeIn from "./FadeIn";
 
 // Three.js relies on WebGL/canvas APIs unavailable during SSR, so this
 // component is loaded client-side only.
 const NexusGraph3D = dynamic(() => import("./NexusGraph3D"), {
   ssr: false,
   loading: () => (
-    <div className="flex h-[320px] w-full items-center justify-center font-mono text-xs text-muted md:h-[380px]">
+    <div className="flex h-[320px] w-full items-center justify-center font-mono text-xs text-muted md:h-[450px]">
       3D sahna yuklanmoqda...
     </div>
   ),
@@ -16,37 +17,49 @@ const NexusGraph3D = dynamic(() => import("./NexusGraph3D"), {
 export default function Hero() {
   return (
     <section className="pb-16 pt-22">
-      <div className="eyebrow mb-5 flex items-center gap-[10px] font-mono text-xs uppercase tracking-[1.5px] text-cyan">
-        Frontend & AI Builder
-      </div>
-      <h1 className="max-w-[680px] font-display text-[56px] font-semibold leading-[1.06] tracking-[-1.5px] text-white md:text-[56px] max-md:text-4xl">
-        O&apos;zbekistondan <span className="text-purple">dasturchi</span>{" "}
-        va AI builder.
-      </h1>
-      <p className="mt-[22px] max-w-[480px] text-[17px] leading-relaxed text-muted">
-        Nexus Devs — mening build-in-public jurnalim va shaxsiy loyihalarim uchun uy. Asosan Frontend, AI avtomatizatsiya va Telegram botlari bilan tajriba qilaman.
-      </p>
-      <div className="mt-[34px] flex gap-3.5">
-        <a
-          href="#blog"
-          className="rounded-lg bg-purple px-6 py-[13px] text-sm font-semibold text-white transition-opacity hover:opacity-90"
-        >
-          Blogni o&apos;qish →
-        </a>
-        <a
-          href="#work"
-          className="rounded-lg border border-border px-6 py-[13px] font-mono text-sm text-white transition-colors hover:bg-white/5"
-        >
-          /loyihalarni ko&apos;rish
-        </a>
-      </div>
-
-      <div className="mt-16 border-t border-border pt-9">
-        <p className="mb-2 text-center font-mono text-[11px] tracking-wide text-muted">
-          // nexus — bir nuqtada birlashgan yechimlar
+      <FadeIn delay={0.1}>
+        <div className="eyebrow mb-5 flex items-center gap-[10px] font-mono text-xs uppercase tracking-[1.5px] text-cyan">
+          Frontend & AI Builder
+        </div>
+      </FadeIn>
+      <FadeIn delay={0.2}>
+        <h1 className="max-w-[680px] font-display text-[56px] font-semibold leading-[1.06] tracking-[-1.5px] text-white md:text-[56px] max-md:text-4xl">
+          O&apos;zbekistondan <span className="text-purple">dasturchi</span>{" "}
+          va AI builder.
+        </h1>
+      </FadeIn>
+      <FadeIn delay={0.3}>
+        <p className="mt-[22px] max-w-[480px] text-[17px] leading-relaxed text-muted">
+          Nexus Devs — mening build-in-public jurnalim va shaxsiy loyihalarim uchun uy. Asosan Frontend, AI avtomatizatsiya va Telegram botlari bilan tajriba qilaman.
         </p>
-        <NexusGraph3D />
-      </div>
+      </FadeIn>
+      <FadeIn delay={0.4}>
+        <div className="mt-[34px] flex gap-3.5">
+          <a
+            href="#blog"
+            className="rounded-lg bg-purple px-6 py-[13px] text-sm font-semibold text-white transition-opacity hover:opacity-90 hover:shadow-[0_0_20px_rgb(124,92,252,0.4)]"
+          >
+            Blogni o&apos;qish →
+          </a>
+          <a
+            href="#work"
+            className="rounded-lg border border-border px-6 py-[13px] font-mono text-sm text-white transition-colors hover:bg-white/5 hover:border-white/20"
+          >
+            /loyihalarni ko&apos;rish
+          </a>
+        </div>
+      </FadeIn>
+
+      <FadeIn delay={0.5}>
+        <div className="mt-16 border-t border-border/50 pt-9 relative">
+          <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 bg-bg px-4">
+            <p className="text-center font-mono text-[11px] tracking-wide text-muted">
+              // nexus — bir nuqtada birlashgan yechimlar
+            </p>
+          </div>
+          <NexusGraph3D />
+        </div>
+      </FadeIn>
     </section>
   );
 }
