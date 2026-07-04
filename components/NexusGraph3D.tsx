@@ -23,21 +23,46 @@ const CENTER: [number, number, number] = [0, 0, 0];
 
 function Node({ position, label, accent }: NodeDef) {
   const [hovered, setHovered] = useState(false);
+  const meshRef = useRef<THREE.Mesh>(null);
+  const matRef = useRef<THREE.MeshStandardMaterial>(null);
+
+  useFrame((_, delta) => {
+    if (meshRef.current) {
+      const targetScale = hovered ? 1.5 : 1;
+      meshRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), delta * 15);
+    }
+    if (matRef.current) {
+      const targetIntensity = hovered ? 3.0 : (accent ? 2.0 : 0);
+      matRef.current.emissiveIntensity += (targetIntensity - matRef.current.emissiveIntensity) * delta * 15;
+    }
+  });
 
   return (
     <group 
       position={position}
-      onPointerOver={() => setHovered(true)}
-      onPointerOut={() => setHovered(false)}
+      onPointerOver={(e) => {
+        e.stopPropagation();
+        setHovered(true);
+        document.body.style.cursor = 'pointer';
+      }}
+      onPointerOut={(e) => {
+        setHovered(false);
+        document.body.style.cursor = 'auto';
+      }}
     >
-      <mesh scale={hovered ? 1.5 : 1}>
+      <mesh ref={meshRef}>
         <sphereGeometry args={[0.09, 64, 64]} />
         <meshStandardMaterial
+          ref={matRef}
           color={accent ? "#5EEAD4" : "#23232E"}
           emissive={accent ? "#5EEAD4" : "#000000"}
-          emissiveIntensity={hovered ? 3.0 : (accent ? 2.0 : 0)}
+          emissiveIntensity={accent ? 2.0 : 0}
           toneMapped={false}
         />
+      </mesh>
+      {/* Invisible larger hitbox for instant hover detection */}
+      <mesh visible={false}>
+        <sphereGeometry args={[0.25, 16, 16]} />
       </mesh>
       <Text
         position={[0, -0.35, 0]}

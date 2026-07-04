@@ -32,7 +32,7 @@ export default function Blog() {
         {POSTS.map((post, idx) => (
           <FadeIn key={post.title} delay={idx * 0.15}>
             <div
-              className="group flex flex-col justify-between h-full rounded-xl border border-border bg-card/40 backdrop-blur-md p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan/50 hover:bg-card/70 hover:shadow-[0_8px_30px_rgb(94,234,212,0.08)]"
+              className="group flex flex-col justify-between h-full rounded-xl border border-border bg-card/40 backdrop-blur-md p-6 transition-all duration-200 ease-out hover:-translate-y-1 hover:border-cyan/50 hover:bg-card/70 hover:shadow-[0_8px_30px_rgb(94,234,212,0.08)]"
             >
               <div>
                 <time className="mb-3 block font-mono text-xs text-muted">

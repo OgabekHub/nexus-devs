@@ -30,9 +30,9 @@ export default function Services() {
         {FOCUS_AREAS.map((s, idx) => (
           <FadeIn key={s.title} delay={idx * 0.15}>
             <div
-              className="group h-full rounded-xl border border-border bg-card/50 backdrop-blur-sm p-7 transition-all duration-300 hover:-translate-y-1 hover:border-purple/70 hover:bg-card/80 hover:shadow-[0_8px_30px_rgb(124,92,252,0.12)]"
+              className="group h-full rounded-xl border border-border bg-card/50 backdrop-blur-sm p-7 transition-all duration-200 ease-out hover:-translate-y-1 hover:border-purple/70 hover:bg-card/80 hover:shadow-[0_8px_30px_rgb(124,92,252,0.12)]"
             >
-              <div className="mb-[18px] flex h-9 w-9 items-center justify-center rounded-lg bg-[--purple-soft] text-purple transition-transform group-hover:scale-110 group-hover:bg-purple group-hover:text-white">
+              <div className="mb-[18px] flex h-9 w-9 items-center justify-center rounded-lg bg-[--purple-soft] text-purple transition-transform duration-200 ease-out group-hover:scale-110 group-hover:bg-purple group-hover:text-white">
                 ◆
               </div>
               <h3 className="mb-2 font-display text-[17px] font-semibold text-white">

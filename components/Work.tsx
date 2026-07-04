@@ -34,7 +34,7 @@ export default function Work() {
           <FadeIn key={p.title} delay={idx * 0.1}>
             <a
               href="#"
-              className="group flex flex-col justify-center rounded-xl border border-border bg-card/30 backdrop-blur-sm p-6 transition-all hover:-translate-y-1 hover:border-purple/50 hover:bg-card/60"
+              className="group flex flex-col justify-center rounded-xl border border-border bg-card/30 backdrop-blur-sm p-6 transition-all duration-200 ease-out hover:-translate-y-1 hover:border-purple/50 hover:bg-card/60"
             >
               <div className="flex items-center justify-between mb-2">
                 <span className="font-display text-xl text-white transition-colors group-hover:text-purple">
