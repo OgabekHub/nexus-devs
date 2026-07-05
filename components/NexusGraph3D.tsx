@@ -5,6 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Line, Text, Stars, Float } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import * as THREE from "three";
+import { useTheme } from "next-themes";
 
 type NodeDef = {
   position: [number, number, number];
@@ -25,6 +26,8 @@ function Node({ position, label, accent }: NodeDef) {
   const [hovered, setHovered] = useState(false);
   const meshRef = useRef<THREE.Mesh>(null);
   const matRef = useRef<THREE.MeshStandardMaterial>(null);
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
 
   useFrame((_, delta) => {
     if (meshRef.current) {
@@ -54,9 +57,9 @@ function Node({ position, label, accent }: NodeDef) {
         <sphereGeometry args={[0.09, 64, 64]} />
         <meshStandardMaterial
           ref={matRef}
-          color={accent ? "#5EEAD4" : "#23232E"}
-          emissive={accent ? "#5EEAD4" : "#000000"}
-          emissiveIntensity={accent ? 2.0 : 0}
+          color={accent ? (isDark ? "#5EEAD4" : "#0d9488") : (isDark ? "#23232E" : "#e2e8f0")}
+          emissive={accent ? (isDark ? "#5EEAD4" : "#0d9488") : "#000000"}
+          emissiveIntensity={accent ? (isDark ? 2.0 : 1.0) : 0}
           toneMapped={false}
         />
       </mesh>
@@ -67,7 +70,7 @@ function Node({ position, label, accent }: NodeDef) {
       <Text
         position={[0, -0.35, 0]}
         fontSize={0.16}
-        color={hovered ? "#ffffff" : "#8B8B99"}
+        color={hovered ? (isDark ? "#ffffff" : "#121218") : (isDark ? "#8B8B99" : "#64748b")}
         anchorX="center"
         anchorY="middle"
         material-toneMapped={false}
@@ -82,6 +85,8 @@ function CenterNode() {
   const coreRef = useRef<THREE.Mesh>(null);
   const ring1Ref = useRef<THREE.Mesh>(null);
   const ring2Ref = useRef<THREE.Mesh>(null);
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
 
   useFrame((_, delta) => {
     if (ring1Ref.current) {
@@ -123,16 +128,16 @@ function CenterNode() {
       <mesh ref={coreRef}>
         <sphereGeometry args={[0.12, 32, 32]} />
         <meshStandardMaterial
-          color="#ffffff"
-          emissive="#ffffff"
-          emissiveIntensity={2.5}
+          color={isDark ? "#ffffff" : "#121218"}
+          emissive={isDark ? "#ffffff" : "#121218"}
+          emissiveIntensity={isDark ? 2.5 : 1.0}
           toneMapped={false}
         />
       </mesh>
       <Text
         position={[0, -0.55, 0]}
         fontSize={0.2}
-        color="#ffffff"
+        color={isDark ? "#ffffff" : "#121218"}
         anchorX="center"
         anchorY="middle"
         letterSpacing={0.1}

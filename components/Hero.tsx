@@ -23,7 +23,7 @@ export default function Hero() {
         </div>
       </FadeIn>
       <FadeIn delay={0.2}>
-        <h1 className="max-w-[680px] font-display text-[56px] font-semibold leading-[1.06] tracking-[-1.5px] text-white md:text-[56px] max-md:text-4xl">
+        <h1 className="max-w-[680px] font-display text-[56px] font-semibold leading-[1.06] tracking-[-1.5px] text-foreground md:text-[56px] max-md:text-4xl">
           O&apos;zbekistondan <span className="text-purple">dasturchi</span>{" "}
           va AI builder.
         </h1>
@@ -43,7 +43,7 @@ export default function Hero() {
           </a>
           <a
             href="#work"
-            className="rounded-lg border border-border px-6 py-[13px] font-mono text-sm text-white transition-colors hover:bg-white/5 hover:border-white/20"
+            className="rounded-lg border border-border px-6 py-[13px] font-mono text-sm text-foreground transition-colors hover:bg-card/50 hover:border-border/80"
           >
             /loyihalarni ko&apos;rish
           </a>
