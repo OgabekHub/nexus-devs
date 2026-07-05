@@ -5,7 +5,7 @@ import HeroVisual from "./HeroVisual";
 
 export default function Hero() {
   return (
-    <section className="relative pt-32 pb-20 md:pt-48 md:pb-32">
+    <section className="relative pt-24 pb-20 md:pt-32 md:pb-32">
       <div className="absolute inset-x-0 top-[-100px] -z-10 h-[500px] w-full bg-[radial-gradient(ellipse_at_top,var(--purple-soft),transparent_70%)]" />
       
       <div className="flex flex-col-reverse items-center justify-between gap-12 md:flex-row md:gap-8">
