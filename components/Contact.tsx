@@ -51,7 +51,7 @@ export default function Contact() {
               <a href="https://github.com/OgabekHub" target="_blank" rel="noopener noreferrer" className="inline-block rounded-lg border border-border bg-bg/50 px-6 py-[13px] text-sm font-semibold text-foreground transition-colors hover:border-purple hover:bg-card/80">
                 GitHub
               </a>
-              <a href="https://t.me/olimjonov_ogabek" target="_blank" rel="noopener noreferrer" className="inline-block rounded-lg bg-purple px-6 py-[13px] text-sm font-semibold text-white transition-opacity hover:opacity-90">
+              <a href="https://t.me/olimjonov_ogabek" target="_blank" rel="noopener noreferrer" className="inline-block rounded-lg border border-border bg-bg/50 px-6 py-[13px] text-sm font-semibold text-foreground transition-colors hover:border-purple hover:bg-card/80">
                 Telegram
               </a>
               <a href="https://www.linkedin.com/in/og-abek-olimjonov-2a52b3364/" target="_blank" rel="noopener noreferrer" className="inline-block rounded-lg border border-border bg-bg/50 px-6 py-[13px] text-sm font-semibold text-foreground transition-colors hover:border-cyan hover:bg-card/80">
