@@ -1,9 +1,20 @@
 import FadeIn from "./FadeIn";
 
 const SKILLS = [
+  // Tillari & Core
+  "JavaScript",
+  "TypeScript",
   "HTML5",
   "CSS3",
-  "JavaScript",
+  // Framework & Kutubxonalar
+  "React",
+  "Next.js",
+  "Tailwind CSS",
+  // Toollar & Boshqalar
+  "Git & GitHub",
+  "Vercel",
+  "Postman",
+  "VS Code"
 ];
 
 export default function Skills() {
