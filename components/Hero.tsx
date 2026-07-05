@@ -1,65 +1,60 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import FadeIn from "./FadeIn";
-
-// Three.js relies on WebGL/canvas APIs unavailable during SSR, so this
-// component is loaded client-side only.
-const NexusGraph3D = dynamic(() => import("./NexusGraph3D"), {
-  ssr: false,
-  loading: () => (
-    <div className="flex h-[320px] w-full items-center justify-center font-mono text-xs text-muted md:h-[450px]">
-      3D sahna yuklanmoqda...
-    </div>
-  ),
-});
+import HeroVisual from "./HeroVisual";
 
 export default function Hero() {
   return (
-    <section className="pb-16 pt-22">
-      <FadeIn delay={0.1}>
-        <div className="eyebrow mb-5 flex items-center gap-[10px] font-mono text-xs uppercase tracking-[1.5px] text-cyan">
-          Frontend & AI Builder
-        </div>
-      </FadeIn>
-      <FadeIn delay={0.2}>
-        <h1 className="max-w-[680px] font-display text-[56px] font-semibold leading-[1.06] tracking-[-1.5px] text-foreground md:text-[56px] max-md:text-4xl">
-          O&apos;zbekistondan <span className="text-purple">dasturchi</span>{" "}
-          va AI builder.
-        </h1>
-      </FadeIn>
-      <FadeIn delay={0.3}>
-        <p className="mt-[22px] max-w-[480px] text-[17px] leading-relaxed text-muted">
-          Nexus Devs — mening build-in-public jurnalim va shaxsiy loyihalarim uchun uy. Asosan Frontend, AI avtomatizatsiya va Telegram botlari bilan tajriba qilaman.
-        </p>
-      </FadeIn>
-      <FadeIn delay={0.4}>
-        <div className="mt-[34px] flex gap-3.5">
-          <a
-            href="#blog"
-            className="rounded-lg bg-purple px-6 py-[13px] text-sm font-semibold text-white transition-opacity hover:opacity-90 hover:shadow-[0_0_20px_rgb(124,92,252,0.4)]"
-          >
-            Blogni o&apos;qish →
-          </a>
-          <a
-            href="#work"
-            className="rounded-lg border border-border px-6 py-[13px] font-mono text-sm text-foreground transition-colors hover:bg-card/50 hover:border-border/80"
-          >
-            /loyihalarni ko&apos;rish
-          </a>
-        </div>
-      </FadeIn>
-
-      <FadeIn delay={0.5}>
-        <div className="mt-16 border-t border-border/50 pt-9 relative">
-          <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 bg-bg px-4">
-            <p className="text-center font-mono text-[11px] tracking-wide text-muted">
-              // nexus — bir nuqtada birlashgan yechimlar
+    <section className="relative pt-32 pb-20 md:pt-48 md:pb-32">
+      <div className="absolute inset-x-0 top-[-100px] -z-10 h-[500px] w-full bg-[radial-gradient(ellipse_at_top,var(--purple-soft),transparent_70%)]" />
+      
+      <div className="flex flex-col-reverse items-center justify-between gap-12 md:flex-row md:gap-8">
+        <div className="flex-1 text-left">
+          <FadeIn>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-purple/30 bg-purple/10 px-3 py-1.5 text-sm font-medium text-purple backdrop-blur-md">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-purple"></span>
+              </span>
+              Ochiq ishlar uchun qabul ochiq
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <h1 className="max-w-[680px] font-display text-[56px] font-semibold leading-[1.06] tracking-[-1.5px] text-foreground md:text-[56px] max-md:text-4xl">
+              O&apos;zbekistondan <span className="text-purple">dasturchi</span>{" "}
+              va AI builder.
+            </h1>
+          </FadeIn>
+          <FadeIn delay={0.4}>
+            <p className="mt-6 max-w-[540px] text-lg leading-relaxed text-muted">
+              Men texnologiyalar orqali muammolarni hal qilishni yaxshi ko&apos;raman.
+              Full-stack veb ilovalar va aqlli Telegram botlar yaratish bilan shug&apos;ullanaman.
             </p>
-          </div>
-          <NexusGraph3D />
+          </FadeIn>
+          <FadeIn delay={0.6}>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a
+                href="#contact"
+                className="rounded-lg bg-purple px-6 py-[13px] text-sm font-semibold text-white transition-opacity hover:opacity-90 hover:shadow-[0_0_20px_rgb(124,92,252,0.4)]"
+              >
+                Bog&apos;lanish
+              </a>
+              <a
+                href="#work"
+                className="rounded-lg border border-border px-6 py-[13px] font-mono text-sm text-foreground transition-colors hover:bg-card/50 hover:border-border/80"
+              >
+                /loyihalarni ko&apos;rish
+              </a>
+            </div>
+          </FadeIn>
         </div>
-      </FadeIn>
+
+        <div className="w-full flex-1 md:w-auto">
+          <FadeIn delay={0.3} className="relative w-full">
+            <HeroVisual />
+          </FadeIn>
+        </div>
+      </div>
     </section>
   );
 }
