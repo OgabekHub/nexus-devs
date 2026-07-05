@@ -185,7 +185,7 @@ function Scene() {
       <ambientLight intensity={0.6} />
       <pointLight position={[3, 3, 3]} intensity={40} color="#7C5CFC" />
       <pointLight position={[-3, -2, 2]} intensity={20} color="#5EEAD4" />
-      <Stars radius={50} depth={20} count={1500} factor={3} saturation={0} fade speed={1} />
+      <Stars radius={50} depth={20} count={500} factor={3} saturation={0} fade speed={1} />
       <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
         <Links />
         <CenterNode />
@@ -194,9 +194,9 @@ function Scene() {
         ))}
       </Float>
       
-      {/* multisampling={4} fixes jagged edges (anti-aliasing) when using postprocessing */}
-      <EffectComposer multisampling={4}>
-        <Bloom luminanceThreshold={0.5} mipmapBlur luminanceSmoothing={0.9} intensity={2.0} />
+      {/* Post-processing: disabled multisampling and mipmapBlur for much better performance */}
+      <EffectComposer multisampling={0}>
+        <Bloom luminanceThreshold={0.5} mipmapBlur={false} luminanceSmoothing={0.9} intensity={2.0} />
       </EffectComposer>
     </group>
   );
@@ -211,7 +211,7 @@ export default function NexusGraph3D() {
         maskImage: 'radial-gradient(circle at center, black 40%, transparent 90%)'
       }}
     >
-      <Canvas camera={{ position: [0, 0, 5.5], fov: 45 }} dpr={[1, 2]}>
+      <Canvas camera={{ position: [0, 0, 5.5], fov: 45 }} dpr={[1, 1.5]} performance={{ min: 0.5 }}>
         <Scene />
       </Canvas>
     </div>
