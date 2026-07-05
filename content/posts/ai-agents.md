@@ -6,7 +6,30 @@ desc: "LLM modelarni qanday qilib ixtisoslashtirilgan vazifalar uchun prompt-eng
 
 # AI Agentlar
 
-Sun'iy intellekt (AI) modellarini nafaqat chatbot sifatida, balki biznes jarayonlarini avtomatlashtiruvchi mustaqil "Agent" sifatida ishlatish juda samarali. 
+Sun'iy intellekt (AI) agentlari hozirgi kunda shunchaki chat-botlardan ancha ilgarilab ketdi. Ularni o'ziga xos avtonom yordamchilarga aylantirish mumkin.
+
+Mana Python da kichik bir agent misoli:
+
+```python
+from langchain.agents import initialize_agent, Tool
+from langchain.llms import OpenAI
+
+def calculate(query):
+    return eval(query)
+
+tools = [
+    Tool(
+        name="Calculator",
+        func=calculate,
+        description="Matematik hisob-kitoblar uchun"
+    )
+]
+
+agent = initialize_agent(tools, OpenAI(temperature=0), agent="zero-shot-react-description")
+print(agent.run("5 ning kvadrati nechiga teng?"))
+```
+
+Ushbu maqolada men ularni qanday qilib o'z biznes logikamizga ulash va LangChain, RAG (Retrieval-Augmented Generation) arxitekturalari orqali xatosiz ishlashga o'rgatish haqida yozaman.
 
 ## RAG (Retrieval-Augmented Generation) nima?
 

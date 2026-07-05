@@ -53,7 +53,8 @@ export async function getPostData(id: string): Promise<PostData> {
   const matterResult = matter(fileContents);
 
   const processedContent = await remark()
-    .use(html)
+    .use(html, { sanitize: false })
+    .use(require("remark-prism"))
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 
