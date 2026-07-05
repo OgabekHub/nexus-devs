@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
+import prism from "remark-prism";
 
 const postsDirectory = path.join(process.cwd(), "content/posts");
 
@@ -15,7 +16,6 @@ export interface PostData {
 }
 
 export function getSortedPostsData(): PostData[] {
-  // Check if directory exists
   if (!fs.existsSync(postsDirectory)) {
     return [];
   }
@@ -54,7 +54,7 @@ export async function getPostData(id: string): Promise<PostData> {
 
   const processedContent = await remark()
     .use(html, { sanitize: false })
-    .use(require("remark-prism"))
+    .use(prism)
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 

@@ -43,6 +43,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
       </main>
     );
   } catch (e) {
+    console.error("Error generating blog post:", e);
     notFound();
   }
 }
