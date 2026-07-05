@@ -20,6 +20,8 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
 });
 
+import { ThemeProvider } from "@/components/ThemeProvider";
+
 export const metadata: Metadata = {
   title: "Nexus Devs — Frontend & AI Builder",
   description:
@@ -32,11 +34,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="uz">
+    <html lang="uz" suppressHydrationWarning>
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-body`}
+        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-body bg-bg text-foreground transition-colors duration-300`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

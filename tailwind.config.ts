@@ -1,17 +1,18 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: ["class"],
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        bg: "#0B0B0F",
-        "bg-soft": "#121218",
-        card: "#15151D",
-        border: "#23232E",
-        purple: "#7C5CFC",
-        cyan: "#5EEAD4",
-        muted: "#8B8B99",
+        bg: "var(--background)",
+        "bg-soft": "var(--card)",
+        card: "var(--card)",
+        border: "var(--border)",
+        purple: "var(--purple)",
+        cyan: "var(--cyan)",
+        muted: "var(--muted)",
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],
