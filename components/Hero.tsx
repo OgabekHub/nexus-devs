@@ -35,13 +35,13 @@ export default function Hero() {
             <div className="mt-10 flex flex-wrap gap-4">
               <a
                 href="#contact"
-                className="rounded-lg bg-purple px-6 py-[13px] text-sm font-semibold text-white transition-opacity hover:opacity-90 hover:shadow-[0_0_20px_rgb(124,92,252,0.4)]"
+                className="rounded-lg bg-purple px-6 py-[13px] text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgb(124,92,252,0.4)]"
               >
                 Bog&apos;lanish
               </a>
               <a
                 href="#work"
-                className="rounded-lg border border-border px-6 py-[13px] font-mono text-sm text-foreground transition-colors hover:bg-card/50 hover:border-border/80"
+                className="rounded-lg border border-border px-6 py-[13px] font-mono text-sm text-foreground transition-all duration-300 hover:-translate-y-1 hover:bg-card/50 hover:border-border/80"
               >
                 /loyihalarni ko&apos;rish
               </a>

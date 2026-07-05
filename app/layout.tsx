@@ -21,6 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Nexus Devs — Frontend & AI Builder",
@@ -46,6 +47,7 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
