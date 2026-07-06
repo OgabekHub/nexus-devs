@@ -98,13 +98,13 @@ export default function Contact() {
 
           <form ref={formRef} onSubmit={sendEmail} className="flex flex-col gap-4" noValidate>
             <div className="flex flex-col gap-1">
-              <label htmlFor="user_name" className="text-sm font-medium text-foreground">
+              <label htmlFor="name" className="text-sm font-medium text-foreground">
                 Ismingiz
               </label>
               <input
-                id="user_name"
+                id="name"
                 type="text"
-                name="user_name"
+                name="name"
                 placeholder="Ali Valiyev"
                 required
                 className="rounded-lg border border-border bg-bg/50 px-4 py-3 text-sm text-foreground focus:border-purple focus:outline-none focus:ring-1 focus:ring-purple placeholder:text-muted"
@@ -112,13 +112,13 @@ export default function Contact() {
             </div>
 
             <div className="flex flex-col gap-1">
-              <label htmlFor="user_email" className="text-sm font-medium text-foreground">
+              <label htmlFor="email" className="text-sm font-medium text-foreground">
                 Email manzilingiz
               </label>
               <input
-                id="user_email"
+                id="email"
                 type="email"
-                name="user_email"
+                name="email"
                 placeholder="ali@example.com"
                 required
                 className="rounded-lg border border-border bg-bg/50 px-4 py-3 text-sm text-foreground focus:border-purple focus:outline-none focus:ring-1 focus:ring-purple placeholder:text-muted"
