@@ -1,8 +1,8 @@
+@import "highlight.js/styles/atom-one-dark.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import "highlight.js/styles/atom-one-dark.css";
 
 @layer base {
   html {
@@ -16,7 +16,9 @@
     --purple: #7c5cfc;
     --cyan: #0d9488;
     --muted: #64748b;
+    --muted-foreground: #475569;
     --purple-soft: rgba(124, 92, 252, 0.12);
+    --bg: #f8f9fa;
   }
 
   .dark {
@@ -27,7 +29,9 @@
     --purple: #7c5cfc;
     --cyan: #5eead4;
     --muted: #8b8b99;
+    --muted-foreground: #a0a0b0;
     --purple-soft: rgba(124, 92, 252, 0.12);
+    --bg: #0b0b0f;
   }
 }
 
@@ -49,10 +53,27 @@ body {
 }
 
 ::selection {
-  background: #7c5cfc;
+  background: var(--purple);
   color: #fff;
 }
 
+/* Reduced motion — accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Blog markdown styles */
 .markdown-body h1 {
   font-size: 2em;
   margin-top: 1.5em;
@@ -63,6 +84,13 @@ body {
 .markdown-body h2 {
   font-size: 1.5em;
   margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: var(--foreground);
+  font-weight: 600;
+}
+.markdown-body h3 {
+  font-size: 1.2em;
+  margin-top: 1.2em;
   margin-bottom: 0.5em;
   color: var(--foreground);
   font-weight: 600;
@@ -88,4 +116,17 @@ body {
 .markdown-body strong {
   color: var(--foreground);
   font-weight: 600;
+}
+.markdown-body pre {
+  border-radius: 10px;
+  margin: 1.5em 0;
+  overflow-x: auto;
+}
+.markdown-body code:not(pre code) {
+  background: var(--card);
+  color: var(--cyan);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.875em;
+  border: 1px solid var(--border);
 }

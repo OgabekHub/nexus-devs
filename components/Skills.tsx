@@ -1,40 +1,42 @@
 import FadeIn from "./FadeIn";
 
 const SKILLS = [
-  // Tillari & Core
-  "JavaScript",
-  "TypeScript",
-  "HTML5",
-  "CSS3",
-  // Framework & Kutubxonalar
-  "React",
-  "Next.js",
-  "Tailwind CSS",
-  // Toollar & Boshqalar
-  "Git & GitHub",
-  "Vercel",
-  "Postman",
-  "VS Code"
+  // Asosiy tillar
+  { name: "JavaScript", category: "lang" },
+  { name: "TypeScript", category: "lang" },
+  { name: "HTML5", category: "lang" },
+  { name: "CSS3", category: "lang" },
+  // Frameworklar
+  { name: "React", category: "framework" },
+  { name: "Next.js", category: "framework" },
+  { name: "Tailwind CSS", category: "framework" },
+  // Toollar
+  { name: "Git & GitHub", category: "tool" },
+  { name: "Vercel", category: "tool" },
+  { name: "Postman", category: "tool" },
+  { name: "VS Code", category: "tool" },
 ];
 
 export default function Skills() {
   return (
-    <section className="border-t border-border py-12">
+    <section id="skills" className="border-t border-border py-12">
       <FadeIn>
         <div className="flex flex-col items-center justify-center">
-          <p className="mb-6 font-mono text-[13px] text-muted uppercase tracking-wider">
+          <h2 className="mb-6 font-mono text-[13px] text-muted uppercase tracking-wider">
             Texnologiyalar
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 max-w-2xl">
+          </h2>
+          <ul
+            className="flex flex-wrap justify-center gap-3 max-w-2xl"
+            aria-label="Ko'nikmalar ro'yxati"
+          >
             {SKILLS.map((skill) => (
-              <div
-                key={skill}
-                className="rounded-full border border-border bg-card/40 px-5 py-2 text-sm font-medium text-foreground transition-colors hover:border-cyan/50 hover:bg-card/80 hover:text-cyan"
-              >
-                {skill}
-              </div>
+              <li key={skill.name}>
+                <span className="block rounded-full border border-border bg-card/40 px-5 py-2 text-sm font-medium text-foreground transition-colors hover:border-cyan/50 hover:bg-card/80 hover:text-cyan cursor-default">
+                  {skill.name}
+                </span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </FadeIn>
     </section>
