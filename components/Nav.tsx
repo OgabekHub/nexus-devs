@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { href: "#services", label: "Yo'nalishlar" },
@@ -29,10 +30,16 @@ export default function Nav() {
           className="mx-auto max-w-[1440px] px-7 md:px-10 flex items-center justify-between py-6"
         >
         {/* Logo */}
-        <div className="flex items-center gap-2 font-display text-[19px] font-bold tracking-tight text-foreground">
-          <span className="h-2 w-2 rounded-full bg-purple shadow-[0_0_12px_#7C5CFC]" aria-hidden="true" />
-          Nexus Devs
-        </div>
+        <a href="/" className="flex items-center gap-2">
+          <Image 
+            src="/img/logo.png" 
+            alt="Nexus Devs Logo" 
+            width={160} 
+            height={40} 
+            className="h-8 w-auto"
+            priority
+          />
+        </a>
 
         {/* Desktop links */}
         <div className="hidden gap-9 text-sm text-muted md:flex items-center">
