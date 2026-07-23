@@ -34,7 +34,7 @@ export default function Nav() {
           <img 
             src="/img/logo.png?v=1" 
             alt="Nexus Devs Logo" 
-            className="h-8 w-auto"
+            className="h-12 w-auto"
           />
         </a>
 
