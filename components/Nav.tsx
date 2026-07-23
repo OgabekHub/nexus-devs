@@ -31,13 +31,10 @@ export default function Nav() {
         >
         {/* Logo */}
         <a href="/" className="flex items-center gap-2">
-          <Image 
+          <img 
             src="/img/logo.png" 
             alt="Nexus Devs Logo" 
-            width={160} 
-            height={40} 
             className="h-8 w-auto"
-            priority
           />
         </a>
 
