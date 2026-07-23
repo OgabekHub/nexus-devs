@@ -12,7 +12,7 @@ export default function Home() {
   const posts = getSortedPostsData();
 
   return (
-    <main className="mx-auto max-w-[1120px] px-7">
+    <main className="mx-auto max-w-[1440px] px-7 md:px-10">
       <Nav />
       <Hero />
       <Skills />
