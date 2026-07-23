@@ -23,10 +23,11 @@ export default function Nav() {
 
   return (
     <>
-      <nav
-        aria-label="Asosiy navigatsiya"
-        className="sticky top-0 z-50 flex items-center justify-between bg-bg/75 py-6 backdrop-blur-md"
-      >
+      <header className="sticky top-0 z-50 bg-bg/75 backdrop-blur-md">
+        <nav
+          aria-label="Asosiy navigatsiya"
+          className="mx-auto max-w-[1440px] px-7 md:px-10 flex items-center justify-between py-6"
+        >
         {/* Logo */}
         <div className="flex items-center gap-2 font-display text-[19px] font-bold tracking-tight text-foreground">
           <span className="h-2 w-2 rounded-full bg-purple shadow-[0_0_12px_#7C5CFC]" aria-hidden="true" />
@@ -73,7 +74,8 @@ export default function Nav() {
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
-      </nav>
+        </nav>
+      </header>
 
       {/* Mobile drawer */}
       {menuOpen && (
